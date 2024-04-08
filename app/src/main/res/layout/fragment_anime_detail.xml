@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/anime_top_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/animeImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:alpha="1.0"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/food_1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/gradient_up"
+            app:layout_constraintBottom_toBottomOf="@+id/animeImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Back button -->
+        <ImageView
+            android:id="@+id/animeButtonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="@+id/animeName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close_white_24px" />
+
+        <TextView
+            android:id="@+id/animeName"
+            style="@style/AppTheme.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/animeRating"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="anime" />
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/animeRating"
+            style="@style/Widget.MaterialRatingBar.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/animeGenre"
+            app:layout_constraintBottom_toTopOf="@+id/animeGenre"
+            app:layout_constraintStart_toStartOf="@+id/animeName"
+            app:mrb_progressTint="@android:color/white"
+            app:mrb_secondaryProgressTint="@android:color/white" />
+
+        <TextView
+            android:id="@+id/animeNumRatings"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/animeRating"
+            app:layout_constraintStart_toEndOf="@+id/animeRating"
+            app:layout_constraintTop_toTopOf="@+id/animeRating"
+            tools:text="(10)" />
+
+        <TextView
+            android:id="@+id/animeGenre"
+            style="@style/AppTheme.Subheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Romance" />
+
+        <TextView
+            android:id="@+id/restaurantCity_divider"
+            style="@style/AppTheme.TextDivider"
+            android:layout_marginStart="16dp"
+            android:text="@string/divider_bullet"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toEndOf="@+id/animeGenre"
+            app:layout_constraintTop_toTopOf="@+id/animeGenre" />
+
+        <TextView
+            android:id="@+id/animeSeason"
+            style="@style/AppTheme.Subheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toEndOf="@+id/animeGenre"
+            app:layout_constraintTop_toTopOf="@+id/animeGenre"
+            tools:text="Spring" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabShowRatingDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#6667AB"
+        android:translationY="-28dp"
+        app:backgroundTint="#6667AB"
+        app:srcCompat="@drawable/ic_add_white_24px"
+        tools:layout_editor_absoluteX="339dp"
+        tools:layout_editor_absoluteY="192dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerRatings"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:clipToPadding="false"
+        android:paddingTop="28dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anime_top_card"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/item_rating"
+        tools:visibility="invisible"/>
+
+    <LinearLayout
+        android:id="@+id/viewEmptyRatings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_top_card"
+        tools:ignore="UseCompoundDrawables"
+        tools:visibility="visible">
+
+        <ImageView
+            style="@style/AppTheme.PizzaGuy"
+            android:src="@drawable/pizza_monster"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message_no_reviews"
+            android:textColor="@color/greyDisabled" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
