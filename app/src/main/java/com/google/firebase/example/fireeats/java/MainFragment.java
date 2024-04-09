@@ -252,6 +252,7 @@ public class MainFragment extends Fragment implements
             List<Anime> animeList = AnimeUtil.readFromCSV(requireContext());
             for (Anime anime : animeList) {
                 DocumentReference animeRef = mFirestore.collection("animes").document();
+
                 batch.set(animeRef, anime);
             }
         } catch (IOException | CsvException e) {
