@@ -64,8 +64,8 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email, password;
-                email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextPassword);
+                email = editTextEmail.getText().toString();
+                password = editTextPassword.getText().toString();
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
                 }
