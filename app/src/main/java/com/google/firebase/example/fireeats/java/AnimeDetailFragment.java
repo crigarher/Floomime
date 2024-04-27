@@ -70,7 +70,7 @@ public class AnimeDetailFragment extends Fragment
         mFirestore = FirebaseFirestore.getInstance();
 
         // Get reference to the Anime
-        mAnimeRef = mFirestore.collection("Animes").document(AnimeId);
+        mAnimeRef = mFirestore.collection("animes").document(AnimeId);
 
         // Get ratings
         Query ratingsQuery = mAnimeRef
@@ -132,10 +132,12 @@ public class AnimeDetailFragment extends Fragment
 
     private void onAnimeLoaded(Anime Anime) {
         mBinding.animeName.setText(Anime.getTitle());
+        mBinding.animeStudios.setText(Anime.getStudios());
         mBinding.animeRating.setRating((float) Anime.getAvgRating());
         mBinding.animeNumRatings.setText(getString(R.string.fmt_num_ratings, Anime.getNumRatings()));
         mBinding.animeSeason.setText(Anime.getStart_season_season());
-        mBinding.animeGenre.setText((CharSequence) Anime.getGenres());
+        mBinding.animeGenre.setText(Anime.getGenres());
+        //mBinding.animeNumEpisodes.setText(Anime.getNum_episodes());
 
 
         // Background image

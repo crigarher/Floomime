@@ -69,10 +69,10 @@
             style="@style/Widget.MaterialRatingBar.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/restaurantCategory"
+            android:layout_above="@+id/animeStudios"
             app:mrb_progressTint="@android:color/white"
             app:mrb_secondaryProgressTint="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@+id/restaurantCategory"
+            app:layout_constraintBottom_toTopOf="@+id/animeStudios"
             app:layout_constraintStart_toStartOf="@+id/restaurantName"
             />
 
@@ -90,7 +90,7 @@
             tools:text="(10)" />
 
         <TextView
-            android:id="@+id/restaurantCategory"
+            android:id="@+id/animeStudios"
             style="@style/AppTheme.Subheader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,12 +103,12 @@
             tools:text="Italian" />
 
         <TextView
-            android:id="@+id/restaurantCity_divider"
+            android:id="@+id/amimeStudio_divider"
             style="@style/AppTheme.TextDivider"
             android:text="@string/divider_bullet"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toTopOf="@+id/restaurantCategory"
-            app:layout_constraintStart_toEndOf="@+id/restaurantCategory"
+            app:layout_constraintTop_toTopOf="@+id/animeStudios"
+            app:layout_constraintStart_toEndOf="@+id/animeStudios"
             />
 
         <TextView
@@ -118,8 +118,8 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             tools:text="San Francisco"
-            app:layout_constraintTop_toTopOf="@+id/restaurantCategory"
-            app:layout_constraintStart_toEndOf="@+id/restaurantCategory"
+            app:layout_constraintTop_toTopOf="@+id/animeStudios"
+            app:layout_constraintStart_toEndOf="@+id/animeStudios"
             />
 
         <TextView
@@ -151,19 +151,6 @@
         app:srcCompat="@drawable/ic_add_white_24px" />
 
     <!-- Ratings -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerRatings"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@android:color/transparent"
-        android:clipToPadding="false"
-        android:paddingTop="28dp"
-        android:paddingBottom="16dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restaurant_top_card"
-        tools:listitem="@layout/item_rating"
-        tools:visibility="invisible" />
 
     <!-- View for empty ratings -->
     <LinearLayout
@@ -191,6 +178,18 @@
             android:layout_height="wrap_content"
             android:text="@string/message_no_reviews"
             android:textColor="@color/greyDisabled" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerRatings"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:clipToPadding="false"
+            android:paddingTop="28dp"
+            android:paddingBottom="16dp"
+            android:visibility="gone"
+            tools:listitem="@layout/item_rating"
+            tools:visibility="invisible" />
 
     </LinearLayout>
 

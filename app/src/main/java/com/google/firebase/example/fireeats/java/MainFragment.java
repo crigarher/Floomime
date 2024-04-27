@@ -202,6 +202,11 @@ public class MainFragment extends Fragment implements
             }
         }
     }
+    public void signOut() {
+        // [START auth_sign_out]
+        FirebaseAuth.getInstance().signOut();
+        // [END auth_sign_out]
+    }
 
     public void onFilterClicked() {
         // Show the dialog containing filter options
@@ -223,7 +228,39 @@ public class MainFragment extends Fragment implements
         NavHostFragment.findNavController(this)
                 .navigate(action);
     }
+    @Override
+    public void onFilter(Filters filters) {
+        Query query = mFirestore.collection("animes");
+        //Genre
+        if (filters.hasGenre()) {
+            query = query.whereEqualTo(Anime.GENRES, filters.getGenre());
+        }
+        // Season
+        if (filters.hasSeason()) {
+            query = query.whereEqualTo(Anime.SEASON, filters.getSeason());
+        }
+        //Studios
+        if (filters.hasStudios()) {
+            query = query.whereEqualTo(Anime.STUDIOS, filters.getStudios());
+        }
+        if (filters.hasSortBy()) {
+            query = query.orderBy(filters.getSortBy(), filters.getSortDirection());
+        }
 
+        // Limit items
+        query = query.limit(LIMIT);
+
+        // Update the query
+        mAdapter.setQuery(query);
+
+        // Set header
+        mBinding.textCurrentSearch.setText(HtmlCompat.fromHtml(filters.getSearchDescription(requireContext()),
+                HtmlCompat.FROM_HTML_MODE_LEGACY));
+        mBinding.textCurrentSortBy.setText(filters.getOrderDescription(requireContext()));
+
+        // Save filters
+        mViewModel.setFilters(filters);
+    }
     private boolean shouldStartSignIn() {
         return (!mViewModel.getIsSigningIn() && FirebaseAuth.getInstance().getCurrentUser() == null);
     }
@@ -307,8 +344,5 @@ public class MainFragment extends Fragment implements
         }
     }
 
-    @Override
-    public void onFilter(Filters filters) {
 
-    }
 }

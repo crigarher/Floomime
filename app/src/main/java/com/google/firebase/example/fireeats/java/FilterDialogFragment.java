@@ -13,7 +13,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.example.fireeats.R;
 import com.google.firebase.example.fireeats.databinding.DialogFiltersBinding;
-import com.google.firebase.example.fireeats.java.model.Restaurant;
+import com.google.firebase.example.fireeats.java.model.Anime;
 import com.google.firebase.firestore.Query;
 
 /**
@@ -81,8 +81,8 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
     }
 
     @Nullable
-    private String getSelectedCategory() {
-        String selected = (String) mBinding.spinnerCategory.getSelectedItem();
+    private String getSelectedGenre() {
+        String selected = (String) mBinding.spinnerGenre.getSelectedItem();
         if (getString(R.string.value_any_category).equals(selected)) {
             return null;
         } else {
@@ -91,25 +91,21 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
     }
 
     @Nullable
-    private String getSelectedCity() {
-        String selected = (String) mBinding.spinnerCity.getSelectedItem();
-        if (getString(R.string.value_any_city).equals(selected)) {
+    private String getSelectedSeason() {
+        String selected = (String) mBinding.spinnerSeason.getSelectedItem();
+        if (getString(R.string.value_any_season).equals(selected)) {
             return null;
         } else {
             return selected;
         }
     }
 
-    private int getSelectedPrice() {
-        String selected = (String) mBinding.spinnerPrice.getSelectedItem();
-        if (selected.equals(getString(R.string.price_1))) {
-            return 1;
-        } else if (selected.equals(getString(R.string.price_2))) {
-            return 2;
-        } else if (selected.equals(getString(R.string.price_3))) {
-            return 3;
+    private String getSelectedStudios() {
+        String selected = (String) mBinding.spinnerStudios.getSelectedItem();
+        if (getString(R.string.value_any_studios).equals(selected)) {
+            return null;
         } else {
-            return -1;
+            return selected;
         }
     }
 
@@ -117,11 +113,9 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
     private String getSelectedSortBy() {
         String selected = (String) mBinding.spinnerSort.getSelectedItem();
         if (getString(R.string.sort_by_rating).equals(selected)) {
-            return Restaurant.FIELD_AVG_RATING;
-        } if (getString(R.string.sort_by_price).equals(selected)) {
-            return Restaurant.FIELD_PRICE;
-        } if (getString(R.string.sort_by_popularity).equals(selected)) {
-            return Restaurant.FIELD_POPULARITY;
+            return Anime.FIELD_AVG_RATING;
+        }  if (getString(R.string.sort_by_popularity).equals(selected)) {
+            return Anime.FIELD_POPULARITY;
         }
 
         return null;
@@ -132,9 +126,8 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
         String selected = (String) mBinding.spinnerSort.getSelectedItem();
         if (getString(R.string.sort_by_rating).equals(selected)) {
             return Query.Direction.DESCENDING;
-        } if (getString(R.string.sort_by_price).equals(selected)) {
-            return Query.Direction.ASCENDING;
-        } if (getString(R.string.sort_by_popularity).equals(selected)) {
+        }
+        if (getString(R.string.sort_by_popularity).equals(selected)) {
             return Query.Direction.DESCENDING;
         }
 
@@ -143,9 +136,9 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
 
     public void resetFilters() {
         if (mBinding != null) {
-            mBinding.spinnerCategory.setSelection(0);
-            mBinding.spinnerCity.setSelection(0);
-            mBinding.spinnerPrice.setSelection(0);
+            mBinding.spinnerGenre.setSelection(0);
+            mBinding.spinnerSeason.setSelection(0);
+            mBinding.spinnerStudios.setSelection(0);
             mBinding.spinnerSort.setSelection(0);
         }
     }
@@ -154,9 +147,9 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
         Filters filters = new Filters();
 
         if (mBinding != null) {
-            filters.setCategory(getSelectedCategory());
-            filters.setCity(getSelectedCity());
-            filters.setPrice(getSelectedPrice());
+            filters.setGenre(getSelectedGenre());
+            filters.setSeason(getSelectedSeason());
+            filters.setStudios(getSelectedStudios());
             filters.setSortBy(getSelectedSortBy());
             filters.setSortDirection(getSortDirection());
         }

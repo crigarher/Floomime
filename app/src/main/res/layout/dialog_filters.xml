@@ -21,21 +21,19 @@
         android:id="@+id/icon_category"
         style="@style/AppTheme.FilterIcon"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerCategory"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerGenre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinnerCategory"
-        app:srcCompat="@drawable/ic_fastfood_white_24dp"
+        app:layout_constraintTop_toTopOf="@+id/spinnerGenre"
+        app:srcCompat="@drawable/luna"
         app:tint="@color/greySecondary" />
 
     <Spinner
-        android:id="@+id/spinnerCategory"
+        android:id="@+id/spinnerGenre"
         style="@style/AppTheme.FilterSpinner"
         android:layout_width="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:entries="@array/categories"
+        android:entries="@array/genres"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_category"
         app:layout_constraintTop_toBottomOf="@+id/filterDialogTitle" />
@@ -45,45 +43,43 @@
     <ImageView
         android:id="@+id/icon_city"
         style="@style/AppTheme.FilterIcon"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerCity"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerSeason"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinnerCity"
-        app:srcCompat="@drawable/ic_place_white_24px"
+        app:layout_constraintTop_toTopOf="@+id/spinnerSeason"
+        app:srcCompat="@drawable/imagen_2024_04_24_121234003"
         app:tint="@color/greySecondary" />
 
     <Spinner
-        android:id="@+id/spinnerCity"
+        android:id="@+id/spinnerSeason"
         style="@style/AppTheme.FilterSpinner"
         android:layout_width="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:entries="@array/cities"
+        android:entries="@array/seasons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_city"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerGenre" />
 
     <!-- Price -->
     <ImageView
         android:id="@+id/icon_price"
         style="@style/AppTheme.FilterIcon"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerPrice"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerStudios"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinnerPrice"
+        app:layout_constraintTop_toTopOf="@+id/spinnerStudios"
         app:srcCompat="@drawable/ic_monetization_on_white_24px"
         app:tint="@color/greySecondary" />
 
     <Spinner
-        android:id="@+id/spinnerPrice"
+        android:id="@+id/spinnerStudios"
         style="@style/AppTheme.FilterSpinner"
         android:layout_width="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:entries="@array/prices"
+        android:entries="@array/studios"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_price"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCity" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSeason" />
 
     <!-- Sort By -->
     <ImageView
@@ -105,7 +101,7 @@
         android:entries="@array/sort_by"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_sort"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerStudios" />
 
     <!-- Cancel and apply buttons -->
     <View
@@ -140,6 +136,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/apply"
         android:theme="@style/ThemeOverlay.FilterButton"
+        app:backgroundTint="#E63E62"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCancel"

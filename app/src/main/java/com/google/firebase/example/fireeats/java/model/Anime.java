@@ -6,6 +6,12 @@ import java.util.Set;
 
 @IgnoreExtraProperties
 public class Anime {
+
+    public static final String GENRES = "genres";
+    public static final String SEASON = "season";
+    public static final String STUDIOS = "studios";
+    public static final String FIELD_POPULARITY = "numRatings";
+    public static final String FIELD_AVG_RATING = "avgRating";
     private String title;
     private String status;
     private Integer num_episodes;
@@ -13,12 +19,10 @@ public class Anime {
     private Integer start_season_year;
     private String start_season_season;
     private String broadcast_day_of_the_week;
-    private Set<String> genres;
-    private Set<String> studios;
+    private String genres;
+    private String studios;
     private String synopsis;
     private String main_picture_medium;
-    private String alternative_title_en;
-    private Set<String> alternative_title_synonyms;
     private int numRatings;
     private double avgRating;
 
@@ -26,8 +30,8 @@ public class Anime {
     }
 
     public Anime(String title, String status, Integer num_episodes, String rating, Integer start_season_year, String start_season_season,
-                 String broadcast_day_of_the_week, Set<String> genres, Set<String> studios, String synopsis, String main_picture_medium,
-                 String alternative_title_en, Set<String> alternative_title_synonyms, int numRatings, double avgRating) {
+                 String broadcast_day_of_the_week, String genres, String studios, String synopsis, String main_picture_medium,
+                  int numRatings, double avgRating) {
         this.title = title;
         this.status = status;
         this.num_episodes = num_episodes;
@@ -39,10 +43,14 @@ public class Anime {
         this.studios = studios;
         this.synopsis = synopsis;
         this.main_picture_medium = main_picture_medium;
-        this.alternative_title_en = alternative_title_en;
-        this.alternative_title_synonyms = alternative_title_synonyms;
         this.numRatings = numRatings;
         this.avgRating= avgRating;
+    }
+
+    public String getRandomIfNull(String test){
+       if (test.equals(null)){
+           return "aaa";
+       }else return test;
     }
 
     public String getTitle() {
@@ -73,28 +81,12 @@ public class Anime {
         this.start_season_season = start_season_season;
     }
 
-    public Set<String> getStudios() {
+    public String getStudios() {
         return studios;
     }
 
-    public void setStudios(Set<String> studios) {
+    public void setStudios(String studios) {
         this.studios = studios;
-    }
-
-    public String getAlternative_title_en() {
-        return alternative_title_en;
-    }
-
-    public void setAlternative_title_en(String alternative_title_en) {
-        this.alternative_title_en = alternative_title_en;
-    }
-
-    public Set<String> getAlternative_title_synonyms() {
-        return alternative_title_synonyms;
-    }
-
-    public void setAlternative_title_synonyms(Set<String> alternative_title_synonyms) {
-        this.alternative_title_synonyms = alternative_title_synonyms;
     }
 
     public void setTitle(String title) {
@@ -125,11 +117,11 @@ public class Anime {
         this.broadcast_day_of_the_week = broadcast_day_of_the_week;
     }
 
-    public Set<String> getGenres() {
+    public String getGenres() {
         return genres;
     }
 
-    public void setGenres(Set<String> genres) {
+    public void setGenres(String genres) {
         this.genres = genres;
     }
 

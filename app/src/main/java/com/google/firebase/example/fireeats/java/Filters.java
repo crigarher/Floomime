@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.google.firebase.example.fireeats.R;
-import com.google.firebase.example.fireeats.java.model.Restaurant;
-import com.google.firebase.example.fireeats.java.util.RestaurantUtil;
+import com.google.firebase.example.fireeats.java.model.Anime;
+import com.google.firebase.example.fireeats.java.util.AnimeUtil;
 import com.google.firebase.firestore.Query;
 
 /**
@@ -13,9 +13,9 @@ import com.google.firebase.firestore.Query;
  */
 public class Filters {
 
-    private String category = null;
-    private String city = null;
-    private int price = -1;
+    private String genre = null;
+    private String season = null;
+    private String studios = null;
     private String sortBy = null;
     private Query.Direction sortDirection = null;
 
@@ -23,50 +23,50 @@ public class Filters {
 
     public static Filters getDefault() {
         Filters filters = new Filters();
-        filters.setSortBy(Restaurant.FIELD_AVG_RATING);
+        filters.setSortBy(Anime.FIELD_AVG_RATING);
         filters.setSortDirection(Query.Direction.DESCENDING);
 
         return filters;
     }
 
-    public boolean hasCategory() {
-        return !(TextUtils.isEmpty(category));
+    public boolean hasGenre() {
+        return !(TextUtils.isEmpty(genre));
     }
 
-    public boolean hasCity() {
-        return !(TextUtils.isEmpty(city));
+    public boolean hasSeason() {
+        return !(TextUtils.isEmpty(season));
     }
 
-    public boolean hasPrice() {
-        return (price > 0);
+    public boolean hasStudios() {
+        return !(TextUtils.isEmpty(studios));
     }
 
     public boolean hasSortBy() {
         return !(TextUtils.isEmpty(sortBy));
     }
 
-    public String getCategory() {
-        return category;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public String getCity() {
-        return city;
+    public String getSeason() {
+        return season;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setSeason(String season) {
+        this.season = season;
     }
 
-    public int getPrice() {
-        return price;
+    public String getStudios() {
+        return studios;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setStudios(String studios) {
+        this.studios = studios;
     }
 
     public String getSortBy() {
@@ -88,32 +88,31 @@ public class Filters {
     public String getSearchDescription(Context context) {
         StringBuilder desc = new StringBuilder();
 
-        if (category == null && city == null) {
+        if (genre == null && season == null && studios == null) {
             desc.append("<b>");
-            desc.append(context.getString(R.string.all_restaurants));
+            desc.append(context.getString(R.string.all_animes));
             desc.append("</b>");
         }
 
-        if (category != null) {
+        if (genre != null) {
             desc.append("<b>");
-            desc.append(category);
+            desc.append( genre);
             desc.append("</b>");
         }
 
-        if (category != null && city != null) {
+        if (genre != null && season != null && studios!=null) {
             desc.append(" in ");
         }
 
-        if (city != null) {
+        if (season != null) {
             desc.append("<b>");
-            desc.append(city);
+            desc.append(season);
             desc.append("</b>");
         }
 
-        if (price > 0) {
-            desc.append(" for ");
+        if (studios != null) {
             desc.append("<b>");
-            desc.append(RestaurantUtil.getPriceString(price));
+            desc.append(studios);
             desc.append("</b>");
         }
 
@@ -121,9 +120,7 @@ public class Filters {
     }
 
     public String getOrderDescription(Context context) {
-        if (Restaurant.FIELD_PRICE.equals(sortBy)) {
-            return context.getString(R.string.sorted_by_price);
-        } else if (Restaurant.FIELD_POPULARITY.equals(sortBy)) {
+        if (Anime.FIELD_POPULARITY.equals(sortBy)) {
             return context.getString(R.string.sorted_by_popularity);
         } else {
             return context.getString(R.string.sorted_by_rating);

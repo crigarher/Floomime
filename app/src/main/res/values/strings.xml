@@ -1,30 +1,28 @@
 <resources>
     <string name="app_name">Floomime</string>
 
-    <string name="value_any_category">All food</string>
-    <string name="value_any_city">Anywhere</string>
-    <string name="value_any_price">Any price</string>
+    <string name="value_any_category">All genres</string>
+    <string name="value_any_season">Anime Seasons</string>
+    <string name="value_any_studios">Studios</string>
 
-    <string name="price_1">$</string>
-    <string name="price_2">$$</string>
-    <string name="price_3">$$$</string>
 
-    <string name="label_category">Category</string>
-    <string name="label_city">City</string>
-    <string name="label_price">Price</string>
+
+    <string name="label_category">Genre</string>
+    <string name="label_season">Season</string>
+    <string name="label_studios">Studios</string>
     <string name="label_sort_by">Sort By</string>
 
     <string name="fmt_num_ratings" translatable="false">(%d)</string>
-    <string name="all_restaurants">All Animes</string>
+    <string name="all_animes">All Animes</string>
     <string name="header_filters">Filter</string>
     <string name="search">Search</string>
 
     <string name="sort_by_rating">Sort by Rating</string>
     <string name="sort_by_popularity">Sort by Popularity</string>
-    <string name="sort_by_price">Sort by Price</string>
+    <string name="sort_by_studios"></string>
 
     <string name="sorted_by_rating">sorted by rating</string>
-    <string name="sorted_by_price">sorted by price</string>
+    <string name="sorted_by_studios">sorted by studios</string>
     <string name="sorted_by_popularity">sorted by popularity</string>
 
     <string name="add_random_items">Add Random Items</string>
@@ -45,89 +43,54 @@
     <string name="option_exit">Exit</string>
 
     <!-- Types of food I could think of in 5 minutes -->
-    <string-array name="categories">
+    <string-array name="genres">
         <item>@string/value_any_category</item>
 
-        <item>Brunch</item>
-        <item>Burgers</item>
-        <item>Coffee</item>
-        <item>Deli</item>
-        <item>Dim Sum</item>
-        <item>Indian</item>
-        <item>Italian</item>
-        <item>Mediterranean</item>
-        <item>Mexican</item>
-        <item>Pizza</item>
-        <item>Ramen</item>
-        <item>Sushi</item>
+        <item>Action</item>
+        <item>Adventure</item>
+        <item>Comedy</item>
+        <item>Drama</item>
+        <item>Fantasy</item>
+        <item>Horror</item>
+        <item>Mystery</item>
+        <item> Romance</item>
+        <item>Sci-fi</item>
+        <item>Sports</item>
+        <item>Supernatural</item>
+        <item>Suspense</item>
     </string-array>
 
     <!-- 50 most populous cities in the US -->
-    <string-array name="cities">
-        <item>@string/value_any_city</item>
-
-        <item>Albuquerque</item>
-        <item>Arlington</item>
-        <item>Atlanta</item>
-        <item>Austin</item>
-        <item>Baltimore</item>
-        <item>Boston</item>
-        <item>Charlotte</item>
-        <item>Chicago</item>
-        <item>Cleveland</item>
-        <item>Colorado Springs</item>
-        <item>Columbus</item>
-        <item>Dallas</item>
-        <item>Denver</item>
-        <item>Detroit</item>
-        <item>El Paso</item>
-        <item>Fort Worth</item>
-        <item>Fresno</item>
-        <item>Houston</item>
-        <item>Indianapolis</item>
-        <item>Jacksonville</item>
-        <item>Kansas City</item>
-        <item>Las Vegas</item>
-        <item>Long Beach</item>
-        <item>Los Angeles</item>
-        <item>Louisville</item>
-        <item>Memphis</item>
-        <item>Mesa</item>
-        <item>Miami</item>
-        <item>Milwaukee</item>
-        <item>Nashville</item>
-        <item>New York</item>
-        <item>Oakland</item>
-        <item>Oklahoma</item>
-        <item>Omaha</item>
-        <item>Philadelphia</item>
-        <item>Phoenix</item>
-        <item>Portland</item>
-        <item>Raleigh</item>
-        <item>Sacramento</item>
-        <item>San Antonio</item>
-        <item>San Diego</item>
-        <item>San Francisco</item>
-        <item>San Jose</item>
-        <item>Tucson</item>
-        <item>Tulsa</item>
-        <item>Virginia Beach</item>
-        <item>Washington</item>
+    <string-array name="seasons">
+        <item>@string/value_any_season</item>
+        <item>Winter</item>
+        <item>Spring</item>
+        <item>Summer</item>
+        <item>Fall</item>
     </string-array>
 
     <!-- Price filters -->
-    <string-array name="prices">
-        <item>@string/value_any_price</item>
-
-        <item>@string/price_1</item>
-        <item>@string/price_2</item>
-        <item>@string/price_3</item>
+    <string-array name="studios">
+        <item>@string/value_any_studios</item>
+        <item>Toei Animation</item>
+        <item>Bandai Namco Pictures</item>
+        <item>Studio Deen</item>
+        <item>Studio Mausu</item>
+        <item>CloverWorks</item>
+        <item>ufotable</item>
+        <item>Bones</item>
+        <item>bilibili</item>
+        <item>Discotek Media</item>
+        <item>TMS Entertainment</item>
+        <item>Studio Deen</item>
+        <item>Pierrot</item>
+        <item>OLM</item>
     </string-array>
 
     <!-- Ways you can sort restaurants -->
     <string-array name="sort_by">
         <item>@string/sort_by_rating</item>
         <item>@string/sort_by_popularity</item>
-        <item>@string/sort_by_price</item>
+        <item>@string/sort_by_studios</item>
     </string-array>
 </resources>

@@ -23,10 +23,7 @@
         <activity
             android:name=".java.MainActivity"
             android:theme="@style/AppTheme.Activity" />
-
-        <activity
-            android:name=".kotlin.MainActivity"
-            android:theme="@style/AppTheme.Activity" />
+>
     </application>
 
 </manifest>
