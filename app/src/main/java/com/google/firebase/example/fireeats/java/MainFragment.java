@@ -35,6 +35,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.example.fireeats.Login;
 import com.google.firebase.example.fireeats.R;
 import com.google.firebase.example.fireeats.databinding.FragmentMainBinding;
 import com.google.firebase.example.fireeats.java.adapter.AnimeAdapter;
@@ -179,8 +180,9 @@ public class MainFragment extends Fragment implements
             onAddItemsClicked();
             return true;
         } else if (itemId == R.id.menu_sign_out) {
-            AuthUI.getInstance().signOut(requireContext());
-            startSignIn();
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getContext(), Login.class);
+            startActivity(intent);
             return true;
         }
         return false;
@@ -201,11 +203,6 @@ public class MainFragment extends Fragment implements
                 showSignInErrorDialog(R.string.message_unknown);
             }
         }
-    }
-    public void signOut() {
-        // [START auth_sign_out]
-        FirebaseAuth.getInstance().signOut();
-        // [END auth_sign_out]
     }
 
     public void onFilterClicked() {

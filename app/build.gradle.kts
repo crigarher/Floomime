@@ -86,6 +86,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation("androidx.activity:activity:1.8.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.7.0")
 
 
