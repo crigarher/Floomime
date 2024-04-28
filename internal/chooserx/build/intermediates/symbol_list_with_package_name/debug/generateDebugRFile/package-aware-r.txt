@@ -1,7 +1,0 @@
-com.firebase.example.internal
-id choices_recycler
-id item_description
-id item_launch_button
-id item_title
-layout activity_entry_choice
-layout item_choice
