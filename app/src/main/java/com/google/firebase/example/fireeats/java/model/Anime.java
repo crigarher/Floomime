@@ -17,8 +17,7 @@ public class Anime {
     private Integer num_episodes;
     private String rating;
     private Integer start_season_year;
-    private String start_season_season;
-    private String broadcast_day_of_the_week;
+    private String season;
     private String genres;
     private String studios;
     private String synopsis;
@@ -29,16 +28,16 @@ public class Anime {
     public Anime() {
     }
 
-    public Anime(String title, String status, Integer num_episodes, String rating, Integer start_season_year, String start_season_season,
-                 String broadcast_day_of_the_week, String genres, String studios, String synopsis, String main_picture_medium,
+    public Anime(String title, String status, Integer num_episodes, String rating, Integer start_season_year, String season,
+                 String genres, String studios, String synopsis, String main_picture_medium,
                   int numRatings, double avgRating) {
         this.title = title;
         this.status = status;
         this.num_episodes = num_episodes;
         this.rating = rating;
         this.start_season_year = start_season_year;
-        this.start_season_season = start_season_season;
-        this.broadcast_day_of_the_week = broadcast_day_of_the_week;
+        this.season = season;
+
         this.genres = genres;
         this.studios = studios;
         this.synopsis = synopsis;
@@ -73,12 +72,12 @@ public class Anime {
         this.start_season_year = start_season_year;
     }
 
-    public String getStart_season_season() {
-        return start_season_season;
+    public String getSeason() {
+        return season;
     }
 
-    public void setStart_season_season(String start_season_season) {
-        this.start_season_season = start_season_season;
+    public void setSeason(String season) {
+        this.season = season;
     }
 
     public String getStudios() {
@@ -109,13 +108,7 @@ public class Anime {
         this.num_episodes = num_episodes;
     }
 
-    public String getBroadcast_day_of_the_week() {
-        return broadcast_day_of_the_week;
-    }
 
-    public void setBroadcast_day_of_the_week(String broadcast_day_of_the_week) {
-        this.broadcast_day_of_the_week = broadcast_day_of_the_week;
-    }
 
     public String getGenres() {
         return genres;

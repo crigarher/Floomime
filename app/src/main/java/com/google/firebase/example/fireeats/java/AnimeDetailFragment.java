@@ -135,7 +135,7 @@ public class AnimeDetailFragment extends Fragment
         mBinding.animeStudios.setText(Anime.getStudios());
         mBinding.animeRating.setRating((float) Anime.getAvgRating());
         mBinding.animeNumRatings.setText(getString(R.string.fmt_num_ratings, Anime.getNumRatings()));
-        mBinding.animeSeason.setText(Anime.getStart_season_season());
+        mBinding.animeSeason.setText(Anime.getSeason());
         mBinding.animeGenre.setText(Anime.getGenres());
         //mBinding.animeNumEpisodes.setText(Anime.getNum_episodes());
 

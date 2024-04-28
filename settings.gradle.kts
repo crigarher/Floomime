@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 
-include(":app")
+include(":app", ":internal:lintchecks", ":internal:chooserx", ":internal:lint")
 
 // Required so that gradle can resolve these dependencies even when
 // building only a single project.

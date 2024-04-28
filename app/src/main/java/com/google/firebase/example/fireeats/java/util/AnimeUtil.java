@@ -58,7 +58,7 @@ public class AnimeUtil {
                 anime.setMain_picture_medium(parts[1]);
                 anime.setNum_episodes(Integer.parseInt(parts[2]));
                 anime.setGenres(getRandomString(genres,random));
-                anime.setStart_season_season(getRandomString(seasons,random));
+                anime.setSeason(getRandomString(seasons,random));
                 anime.setStudios(getRandomString(studios,random));
                 anime.setStatus(getRandomStatus(random));
 
