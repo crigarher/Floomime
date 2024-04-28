@@ -19,7 +19,7 @@
 
     <string name="sort_by_rating">Sort by Rating</string>
     <string name="sort_by_popularity">Sort by Popularity</string>
-    <string name="sort_by_studios"></string>
+
 
     <string name="sorted_by_rating">sorted by rating</string>
     <string name="sorted_by_studios">sorted by studios</string>
@@ -95,6 +95,6 @@
     <string-array name="sort_by">
         <item>@string/sort_by_rating</item>
         <item>@string/sort_by_popularity</item>
-        <item>@string/sort_by_studios</item>
+
     </string-array>
 </resources>
