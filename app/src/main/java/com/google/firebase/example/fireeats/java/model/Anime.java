@@ -16,11 +16,9 @@ public class Anime {
     private String status;
     private Integer num_episodes;
     private String rating;
-    private Integer start_season_year;
     private String season;
     private String genres;
     private String studios;
-    private String synopsis;
     private String main_picture_medium;
     private int numRatings;
     private double avgRating;
@@ -28,29 +26,22 @@ public class Anime {
     public Anime() {
     }
 
-    public Anime(String title, String status, Integer num_episodes, String rating, Integer start_season_year, String season,
-                 String genres, String studios, String synopsis, String main_picture_medium,
+    public Anime(String title, String status, Integer num_episodes, String rating, String season,
+                 String genres, String studios, String main_picture_medium,
                   int numRatings, double avgRating) {
         this.title = title;
         this.status = status;
         this.num_episodes = num_episodes;
         this.rating = rating;
-        this.start_season_year = start_season_year;
         this.season = season;
-
         this.genres = genres;
         this.studios = studios;
-        this.synopsis = synopsis;
         this.main_picture_medium = main_picture_medium;
         this.numRatings = numRatings;
         this.avgRating= avgRating;
     }
 
-    public String getRandomIfNull(String test){
-       if (test.equals(null)){
-           return "aaa";
-       }else return test;
-    }
+
 
     public String getTitle() {
         return title;
@@ -64,13 +55,6 @@ public class Anime {
         this.rating = rating;
     }
 
-    public Integer getStart_season_year() {
-        return start_season_year;
-    }
-
-    public void setStart_season_year(Integer start_season_year) {
-        this.start_season_year = start_season_year;
-    }
 
     public String getSeason() {
         return season;
@@ -118,13 +102,7 @@ public class Anime {
         this.genres = genres;
     }
 
-    public String getSynopsis() {
-        return synopsis;
-    }
 
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
 
     public String getMain_picture_medium() {
         return main_picture_medium;

@@ -141,12 +141,6 @@ public class MainFragment extends Fragment implements
     public void onStart() {
         super.onStart();
 
-        // Start sign in if necessary
-        if (shouldStartSignIn()) {
-            startSignIn();
-            return;
-        }
-
         // Apply filters
         onFilter(mViewModel.getFilters());
 
@@ -188,22 +182,6 @@ public class MainFragment extends Fragment implements
         return false;
     }
 
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
-        IdpResponse response = result.getIdpResponse();
-        mViewModel.setIsSigningIn(false);
-
-        if (result.getResultCode() != Activity.RESULT_OK) {
-            if (response == null) {
-                // User pressed the back button.
-                requireActivity().finish();
-            } else if (response.getError() != null
-                    && response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
-                showSignInErrorDialog(R.string.message_no_network);
-            } else {
-                showSignInErrorDialog(R.string.message_unknown);
-            }
-        }
-    }
 
     public void onFilterClicked() {
         // Show the dialog containing filter options
@@ -262,23 +240,6 @@ public class MainFragment extends Fragment implements
         return (!mViewModel.getIsSigningIn() && FirebaseAuth.getInstance().getCurrentUser() == null);
     }
 
-    private void startSignIn() {
-        // Sign in with FirebaseUI
-        ActivityResultLauncher<Intent> signinLauncher = requireActivity()
-                .registerForActivityResult(new FirebaseAuthUIActivityResultContract(),
-                        this::onSignInResult
-                );
-
-        Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
-                .setAvailableProviders(Collections.singletonList(
-                        new AuthUI.IdpConfig.EmailBuilder().build()))
-                .setIsSmartLockEnabled(false)
-                .build();
-
-        signinLauncher.launch(intent);
-        mViewModel.setIsSigningIn(true);
-    }
-
     private void onAddItemsClicked() {
         // Add a bunch of random animes
         WriteBatch batch = mFirestore.batch();
@@ -306,33 +267,8 @@ public class MainFragment extends Fragment implements
     }
 
 
-    private void showSignInErrorDialog(@StringRes int message) {
-        AlertDialog dialog = new AlertDialog.Builder(requireContext())
-                .setTitle(R.string.title_sign_in_error)
-                .setMessage(message)
-                .setCancelable(false)
-                .setPositiveButton(R.string.option_retry, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                      startSignIn();
-                    }
-                })
-                .setNegativeButton(R.string.option_exit, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        requireActivity().finish();
-                    }
-                }).create();
-
-        dialog.show();
-    }
-
     @Override
     public void onClick(View v) {
-        //Due to bump in Java version, we can not use view ids in switch
-        //(see: http://tools.android.com/tips/non-constant-fields), so we
-        //need to use if/else:
-
         int viewId = v.getId();
         if (viewId == R.id.filterBar) {
             onFilterClicked();

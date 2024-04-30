@@ -62,6 +62,7 @@ public class AnimeUtil {
                 anime.setStudios(getRandomString(studios,random));
                 anime.setStatus(getRandomStatus(random));
 
+
                 animeList.add(anime);
             }
         }
