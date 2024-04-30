@@ -8,4 +8,4 @@ Floomime es una aplicación en la que puedes valorar los animes que más te gust
 
    ```bash
    git clone https://github.com/crigarher/Floomime.git
-2.Abrélo en android studio y ejecutalo!
+2.Abrelo en android studio y ejecutalo!
